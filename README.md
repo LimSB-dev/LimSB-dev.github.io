@@ -11,4 +11,4 @@
 
 # 결과
 
-![LimSB-dev](https://limsb-dev.github.io/)
+<a href="https://limsb-dev.github.io/">LimSB-dev Page</a>
