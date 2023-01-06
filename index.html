@@ -4,11 +4,41 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Vanilla Challenge</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- 명세 -->
+    <header class="navbar">
+      <section class="weather-section">
+        <h3>날씨</h3>
+      </section>
+
+      <section class="account-section">
+        <button class="account-button">로그인</button>
+      </section>
+    </header>
+
+    <main>
+      <header class="main-header">
+        <h1 class="headline">LimSB-dev's Page!</h1>
+      </header>
+
+      <article class="todo">
+        <form class="todo-form">
+          <label for="todo">할 일</label>
+          <input type="text" name="todo" class="todo-input" />
+          <button class="todo-button">제출</button>
+        </form>
+
+        <section class="todo-list-container">
+          <ul class="todo-list"></ul>
+        </section>
+      </article>
+    </main>
+
+    <footer>
+      <time class="clock">00:00:00</time>
+    </footer>
 
     <script src="./index.js"></script>
   </body>
