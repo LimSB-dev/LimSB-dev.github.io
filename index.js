@@ -1,13 +1,27 @@
 const navbar = document.querySelector(".navbar");
 
 // Random Background
+const randomBackGroundButton = document.querySelector(
+  ".random-background-button"
+);
 const images = ["1.png", "2.png", "3.png"];
+let index = null;
 
-const randomImage = images[Math.floor(Math.random() * images.length)];
+function changeRandomImage() {
+  const newIndex = Math.floor(Math.random() * images.length);
 
-document.body.style.backgroundImage = `url(img/${randomImage})`;
+  if (index === newIndex) {
+    changeRandomImage();
+  } else {
+    index = newIndex;
+    const randomImage = images[index];
+    document.body.style.backgroundImage = `url(img/${randomImage})`;
+  }
+}
 
-console.dir(document.body.style.backgroundImage);
+changeRandomImage();
+randomBackGroundButton.addEventListener("click", changeRandomImage);
+
 // Weather
 const weather = document.querySelector(".weather-section");
 const API_KEY = "29fad2dad33c72a1e610d42a9b29e2ac";
@@ -155,9 +169,9 @@ const time = document.querySelector(".clock");
 
 function timer() {
   const nowTime = new Date();
-  const hour = nowTime.getHours();
-  const minute = nowTime.getMinutes();
-  const second = nowTime.getSeconds();
+  const hour = String(nowTime.getHours()).padStart(2, "0");
+  const minute = String(nowTime.getMinutes()).padStart(2, "0");
+  const second = String(nowTime.getSeconds()).padStart(2, "0");
 
   time.innerText = `${hour}:${minute}:${second}`;
 }
