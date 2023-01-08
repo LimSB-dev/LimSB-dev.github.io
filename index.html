@@ -18,23 +18,25 @@
       </section>
     </header>
 
-    <main>
+    <article class="main-article">
       <header class="main-header">
         <h1 class="headline">LimSB-dev's Page!</h1>
       </header>
 
-      <article class="todo">
+      <section class="todo">
         <form class="todo-form">
-          <label for="todo">할 일</label>
-          <input type="text" name="todo" class="todo-input" />
+          <input
+            type="text"
+            placeholder="Write a Todo"
+            name="todo"
+            class="todo-input"
+          />
           <button class="todo-button">제출</button>
         </form>
 
-        <section class="todo-list-container">
-          <ul class="todo-list"></ul>
-        </section>
-      </article>
-    </main>
+        <ul class="todo-list"></ul>
+      </section>
+    </article>
 
     <footer>
       <time class="clock">00:00:00</time>
