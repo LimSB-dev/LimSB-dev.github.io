@@ -1,8 +1,15 @@
+body {
+  margin: 0;
+}
+
 .navbar {
+  position: fixed;
+  top: 0px;
+  width: 80%;
+  margin: 0 10%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 100px;
 }
 
 .account-button {
@@ -10,7 +17,71 @@
   cursor: pointer;
 }
 
+.main-article {
+  margin: 100px 0;
+}
+
 .main-header {
+  width: 100%;
+  position: relative;
+  margin: 100px 0;
+}
+
+.headline {
   display: flex;
   justify-content: center;
+}
+
+.todo {
+  position: relative;
+}
+
+.todo-form {
+  width: 250px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.todo-input {
+  width: 200px;
+  height: 40px;
+}
+
+.todo-list {
+  all: unset;
+  overflow: initial;
+}
+
+.todo-list > * {
+  width: 240px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin: 0 auto;
+  margin-top: 10px;
+  padding: 10px 5px;
+  border: 1px solid #000;
+  border-radius: 5px;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+}
+
+footer {
+  position: fixed;
+  width: 100%;
+  height: 40px;
+  bottom: 0;
+  background-color: #000000cc;
+}
+
+.clock {
+  color: white;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
