@@ -1,5 +1,13 @@
 const navbar = document.querySelector(".navbar");
 
+// Random Background
+const images = ["0.png", "1.png", "2.png", "3.png"];
+
+const randomImage = images[Math.floor(Math.random() * images.length)];
+
+document.body.style.backgroundImage = `url(img/${randomImage})`;
+
+console.dir(document.body.style.backgroundImage);
 // Weather
 const weather = document.querySelector(".weather-section");
 const API_KEY = "29fad2dad33c72a1e610d42a9b29e2ac";
