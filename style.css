@@ -5,11 +5,23 @@ body {
 .navbar {
   position: fixed;
   top: 0px;
-  width: 80%;
-  margin: 0 10%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: burlywood;
+}
+
+.navbar > * {
+  margin: 0 100px;
+}
+
+.active {
+  display: none;
+}
+
+.login-username {
+  cursor: pointer;
 }
 
 .account-button {
@@ -30,6 +42,8 @@ body {
 .headline {
   display: flex;
   justify-content: center;
+  font-size: 100px;
+  font-weight: bold;
 }
 
 .todo {
