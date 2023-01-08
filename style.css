@@ -13,6 +13,32 @@ body {
   z-index: 1;
 }
 
+.random-background {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  width: 150px;
+  z-index: 2;
+}
+
+.random-background-button {
+  font-size: 100px;
+  clip-path: circle(35px);
+
+  cursor: pointer;
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+}
+
+.random-background > p {
+  cursor: pointer;
+  position: fixed;
+  bottom: 40px;
+  right: 35px;
+  font-weight: 600;
+}
+
 .navbar > * {
   margin: 0 100px;
 }
