@@ -58,7 +58,7 @@ const accountButton = document.querySelector(".account-button");
 
 const USERNAME_KEY = "username";
 
-const savedUser = localStorage.getItem(USERNAME_KEY);
+const savedUser = JSON.parse(localStorage.getItem(USERNAME_KEY));
 
 function saveUser(username) {
   logInForm.classList.add("active");
