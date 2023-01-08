@@ -2,9 +2,24 @@ const navbar = document.querySelector(".navbar");
 
 // Weather
 const weather = document.querySelector(".weather-section");
+const API_KEY = "29fad2dad33c72a1e610d42a9b29e2ac";
 
 function onGeoOk(position) {
-  console.log(position);
+  const lat = position.coords.latitude;
+  const lon = position.coords.longitude;
+  const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`;
+
+  fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+      const city = data.name;
+      const curWeather = data.weather[0].main;
+
+      weather.children[0].innerText = `${city} is ${curWeather}`;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 }
 
 function onGeoError() {
@@ -13,8 +28,53 @@ function onGeoError() {
 
 navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError);
 
+// login
 const account = document.querySelector(".account-section");
+const logInForm = document.querySelector(".login-form");
+const logInUserName = document.querySelector(".login-username");
 const accountButton = document.querySelector(".account-button");
+
+const USERNAME_KEY = "username";
+
+const savedUser = localStorage.getItem(USERNAME_KEY);
+
+function saveUser(username) {
+  logInForm.classList.add("active");
+  logInUserName.classList.remove("active");
+  localStorage.setItem(USERNAME_KEY, username);
+  logInUserName.innerText = username;
+}
+
+function LogOut() {
+  logInForm.classList.remove("active");
+  logInUserName.classList.add("active");
+  localStorage.setItem(USERNAME_KEY, null);
+  logInUserName.innerText = "";
+}
+
+if (savedUser !== null) {
+  saveUser(savedUser);
+}
+
+function handleLogIn(event) {
+  event.preventDefault();
+  const username = document.querySelector(".username").value;
+
+  saveUser(username);
+}
+
+function handleLogOut() {
+  let text = "Do you want to log out?";
+  if (confirm(text) == true) {
+    logInForm.classList.remove("active");
+    logInUserName.classList.add("active");
+    localStorage.setItem(USERNAME_KEY, null);
+    logInUserName.innerText = "";
+  }
+}
+
+accountButton.addEventListener("click", handleLogIn);
+logInUserName.addEventListener("click", handleLogOut);
 
 const main = document.querySelector("main");
 
@@ -48,7 +108,7 @@ function paintTodo(newTodoObj) {
   spanTag.innerText = newTodoObj.todo;
 
   const buttonTag = document.createElement("button");
-  buttonTag.className = "delete-button"
+  buttonTag.className = "delete-button";
   buttonTag.innerText = "❌";
   buttonTag.addEventListener("click", deleteTodo);
 
